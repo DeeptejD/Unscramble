@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import com.example.unscramble.data.allWords
-import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.flow.update
 
 class GameViewModel: ViewModel() {
@@ -42,7 +41,7 @@ class GameViewModel: ViewModel() {
         updateUserGuess("")
     }
 
-    private fun resetGame() {
+    fun resetGame() {
         usedWords.clear()
         _uiState.value = GameUiState(currentScrambledWord = pickRandomWordAndShuffle()) // this will send a new flow to the UI
     }
